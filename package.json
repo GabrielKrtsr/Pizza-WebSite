@@ -1,0 +1,32 @@
+{
+  "name": "forno-vivo",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Forno Vivo — site vitrine premium pour pizzeria artisanale",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "lint": "tsc -b --noEmit",
+    "optimize:images": "node scripts/optimize-images.mjs"
+  },
+  "dependencies": {
+    "framer-motion": "^11.11.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.2"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.20",
+    "@types/react": "^18.3.11",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.2",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^3.4.13",
+    "typescript": "^5.6.2",
+    "vite": "^5.4.8"
+  }
+}

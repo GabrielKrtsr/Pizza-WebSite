@@ -1,0 +1,125 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  body {
+    @apply bg-ink-950 text-cream/90 font-sans antialiased;
+    background-image: radial-gradient(
+        ellipse 80% 50% at 50% -10%,
+        rgba(207, 106, 59, 0.16),
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 60% 50% at 90% 10%,
+        rgba(232, 190, 110, 0.1),
+        transparent 55%
+      );
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    @apply bg-terracotta-500/40 text-cream;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 11px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-600 rounded-full border-2 border-ink-900;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-terracotta-700;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/10 bg-white/[0.045] backdrop-blur-xl;
+  }
+
+  .glass-strong {
+    @apply border border-white/15 bg-white/[0.07] backdrop-blur-2xl;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-br from-cream via-gold-300 to-terracotta-400 bg-clip-text text-transparent;
+  }
+
+  .text-gradient-warm {
+    @apply bg-gradient-to-r from-gold-300 to-ember-400 bg-clip-text text-transparent;
+  }
+
+  .container-px {
+    @apply px-6 sm:px-8 lg:px-12;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-gradient-to-r from-transparent via-white/15 to-transparent;
+  }
+
+  /* Spotlight mask: fades the white photo background into the dark theme */
+  .pizza-mask {
+    -webkit-mask-image: radial-gradient(
+      ellipse 62% 70% at 50% 48%,
+      #000 52%,
+      rgba(0, 0, 0, 0.45) 68%,
+      transparent 82%
+    );
+    mask-image: radial-gradient(
+      ellipse 62% 70% at 50% 48%,
+      #000 52%,
+      rgba(0, 0, 0, 0.45) 68%,
+      transparent 82%
+    );
+  }
+
+  /* Hero variant: shifted up + wider so the lifted slice and stretching
+     cheese (top of the last frames) stay fully opaque while the plate
+     edges still melt into the dark background. */
+  .pizza-mask-hero {
+    -webkit-mask-image: radial-gradient(
+      ellipse 70% 82% at 52% 44%,
+      #000 58%,
+      rgba(0, 0, 0, 0.5) 74%,
+      transparent 90%
+    );
+    mask-image: radial-gradient(
+      ellipse 70% 82% at 52% 44%,
+      #000 58%,
+      rgba(0, 0, 0, 0.5) 74%,
+      transparent 90%
+    );
+  }
+}
+
+@layer utilities {
+  .no-tap-highlight {
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
